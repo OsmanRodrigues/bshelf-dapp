@@ -34,7 +34,7 @@ export class ReadingItem {
      * contentType: plainText | url | html
      
     */
-    constructor(shelf, title, description, content, contentType) {
+    constructor({ shelf, title, description, content, contentType }) {
         this.shelf = shelf;
         this.title = title;
         this.id = crypto.randomUUID();
@@ -44,7 +44,7 @@ export class ReadingItem {
 
         if (contentType && ReadingItemContentType[contentType]) {
             this.contentType = ReadingItemContentType[contentType];
-        } else {
+        } else if (contentType && !ReadingItemContentType[contentType]) {
             throw { error: 'Invalid content type.' };
         }
     }

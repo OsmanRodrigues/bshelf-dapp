@@ -46,7 +46,10 @@ export class ShelfController {
             });
 
         return await RollupStateHandler.inspectWrapper(() => ({
-            data: storageRequest.getData(),
+            data: {
+                details: storageRequest.getData(),
+                items: storageRequest.getItems(),
+            },
         }));
     }
 }
