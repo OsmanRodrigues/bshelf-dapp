@@ -22,6 +22,16 @@ export class ShelfController {
     }
 
     /**
+     * ### ShelfController getAllShelfs
+     * @description get all shelfs.
+     */
+    async getAllShelfs() {
+        return await RollupStateHandler.inspectWrapper(() =>
+            shelfStorage.getAll()
+        );
+    }
+
+    /**
      * ### ShelfController getShelfById
      * @description get a shelf by given id.
      * @param {*} data shelf id (UUID)

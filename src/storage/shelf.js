@@ -6,6 +6,15 @@ class ShelfStorage {
     }
 
     /**
+     * ### ShelfStorage getAll
+     * @description get all stored shelfs.
+     * @returns {*} list ShelfModel[ ]
+     */
+    getAll() {
+        return Array.from(this.shelfs.values());
+    }
+
+    /**
      * ### ShelfStorage addOne
      * @description store a single shelf.
      * @param {*} shelf ShelfModel
