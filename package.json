@@ -1,0 +1,27 @@
+{
+    "name": "bshelf-dapp",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/OsmanRodrigues/bshelf-dapp.git",
+    "author": "OsmanRodrigues <osmancesar.mr@gmail.com>",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "viem": "^2.7.6"
+    },
+    "devDependencies": {
+        "esbuild": "^0.19.2"
+    },
+    "scripts": {
+        "build": "esbuild ./src/index.js --bundle --outfile=dist/index.js --platform=node --target=node20",
+        "start": "ROLLUP_HTTP_SERVER_URL=\"http://127.0.0.1:8080/rollup\" node src/index.js"
+    },
+    "keywords": [
+        "bshelf",
+        "cartesi",
+        "dapp"
+    ],
+    "engines": {
+        "node": "20.x"
+    }
+}
