@@ -31,9 +31,9 @@ async function handle_advance(data) {
     const action = controller[requestedAction];
 
     if (!action) {
-        return await RollupStateHandler.handleReport(
-            new Error(`Action "${requestedAction}" not allowed.`)
-        );
+        return await RollupStateHandler.handleReport({
+            error: `Action '${requestedAction}' not allowed.`,
+        });
     }
 
     const controllerResponse = await action(providedData);
@@ -47,10 +47,21 @@ async function handle_advance(data) {
  */
 async function handle_inspect(data) {
     console.log('Received inspect raw data ->', JSON.stringify(data));
-    const payload = hexToString(data.payload);
-    console.log('request payload -> ' + payload);
+    const urlParams = hexToString(data.payload);
+    const urlParamsSplited = urlParams.split('/');
+    const requestedAction = urlParamsSplited[0];
+    const providedData = urlParamsSplited.slice(1);
+    const action = controller[requestedAction];
 
-    return 'accept';
+    if (!action) {
+        return await RollupStateHandler.handleReport({
+            error: `Action '${requestedAction}' not allowed.`,
+        });
+    }
+
+    const controllerResponse = await action(providedData);
+
+    return controllerResponse;
 }
 
 var handlers = {

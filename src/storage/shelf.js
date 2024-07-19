@@ -18,7 +18,7 @@ class ShelfStorage {
      * ### ShelfStorage getOneById
      * @description get a single shelf given an id.
      * @param {*} id UUID
-     * @returns ShelfModel
+     * @returns ShelfModel | undefined (not found)
      */
     getOneById(id) {
         return this.shelfs.get(id);

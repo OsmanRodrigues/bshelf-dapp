@@ -20,4 +20,23 @@ export class ShelfController {
             };
         });
     }
+
+    /**
+     * ### ShelfController getShelfById
+     * @description get a shelf by given id.
+     * @param {*} data shelf id (UUID)
+     */
+    async getShelfById(data) {
+        const shelfId = data[0];
+        const storageRequest = shelfStorage.getOneById(shelfId);
+
+        if (!storageRequest?.id)
+            return await RollupStateHandler.handleReport({
+                error: `Shelf not found for id '${shelfId}'.`,
+            });
+
+        return await RollupStateHandler.inspectWrapper(() => ({
+            data: storageRequest.getData(),
+        }));
+    }
 }

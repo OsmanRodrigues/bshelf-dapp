@@ -45,7 +45,7 @@ export class ReadingItem {
         if (contentType && ReadingItemContentType[contentType]) {
             this.contentType = ReadingItemContentType[contentType];
         } else {
-            throw new Error('Invalid content type.');
+            throw { error: 'Invalid content type.' };
         }
     }
 
