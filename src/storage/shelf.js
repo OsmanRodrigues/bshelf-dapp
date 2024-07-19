@@ -6,6 +6,15 @@ class ShelfStorage {
     }
 
     /**
+     * ### ShelfStorage getAll
+     * @description get all stored shelfs.
+     * @returns {*} list ShelfModel[ ]
+     */
+    getAll() {
+        return Array.from(this.shelfs.values());
+    }
+
+    /**
      * ### ShelfStorage addOne
      * @description store a single shelf.
      * @param {*} shelf ShelfModel
@@ -18,7 +27,7 @@ class ShelfStorage {
      * ### ShelfStorage getOneById
      * @description get a single shelf given an id.
      * @param {*} id UUID
-     * @returns ShelfModel
+     * @returns ShelfModel | undefined (not found)
      */
     getOneById(id) {
         return this.shelfs.get(id);

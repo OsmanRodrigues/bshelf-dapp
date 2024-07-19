@@ -25,7 +25,7 @@ export class RollupStateHandler {
 
             if (noticeResponse.status >= 400) {
                 throw {
-                    message: noticeResponseText,
+                    error: noticeResponseText,
                     status: noticeResponse.status,
                 };
             }
@@ -38,35 +38,56 @@ export class RollupStateHandler {
 
             return 'accept';
         } catch (err) {
+            return this.handleReport(err.error ? err : { error: err });
+        }
+    }
+
+    /**
+     * ### RollupStateHandler inspectWrapper
+     * @description wrapps inspect state handling logics.
+     * @param {*} callback controller action
+     * @returns Promise[status: accept | reject]
+     */
+    static async inspectWrapper(callback) {
+        try {
+            const result = await callback();
+            const dataFallback = result ?? undefined;
+
+            return this.handleReport(dataFallback, 'accept');
+        } catch (err) {
             return this.handleReport(err);
         }
     }
 
-    static inspectWrapper() {}
-
     /**
      * ### RollupStateHandler handleReport
      * @description encapsulate and reuse of report sending logics.
-     * @param {*} error any
+     * @param {*} data any
+     * @param {*} status accept | reject, default: reject
      * @param {*} rollupServer string
-     * @returns Promise[reject]
+     * @returns Promise[status: accept|reject]
      */
-    static async handleReport(error, rollupServer = ROLLUP_SERVER) {
+    static async handleReport(data, status, rollupServer = ROLLUP_SERVER) {
+        let statusFallback = status ?? 'reject';
         const reportResponse = await fetch(`${rollupServer}/report`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                payload: toHex(JSON.stringify(error)),
+                payload: toHex(JSON.stringify(data)),
             }),
         });
+        const reportResponseText = await reportResponse.text();
 
-        console.error(
-            `Report generated with status: ${reportResponse.status}.`
-        );
-        console.error(`Report cause: ${JSON.stringify(error)}`);
+        if (reportResponse.status >= 400 && statusFallback === 'accept') {
+            statusFallback = 'reject';
+        }
 
-        return 'reject';
+        console.info(`Report generated with status: ${reportResponse.status}.`);
+        console.info(`Report response: ${reportResponseText}`);
+        console.info(`Report cause: ${JSON.stringify(data)}`);
+
+        return statusFallback;
     }
 }
