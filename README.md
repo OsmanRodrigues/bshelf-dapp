@@ -58,3 +58,51 @@ Here are some packages you need to have installed on your PC:
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Usage
+
+Here you can access the examples of dapp communication and resources consume.
+
+There are these resources available on this dapp:
+
+### Advanced handlers
+* #### createShelf
+  ```js
+    description — create a shelf.
+    param data — {owner: address ("0x...")} 
+  ```
+  data sample
+  ```json
+    {
+        "action":"createShelf", 
+        "data":{
+            "owner":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+        }
+    } 
+  ```
+  hex sample
+  ``` 
+  0x7b22616374696f6e223a226372656174655368656c66222c202264617461223a7b226f776e6572223a22307866333946643665353161616438384636463463653661423838323732373963666646623932323636227d7d
+  ```
+  interact
+    - access the cartesi blockchain explorer in you browser to send a raw transaction
+  ```sh 
+  http://localhost:8080/explorer/
+  ```
+  
+  - demo 
+    <div>
+        <video width="100%" controls>
+            <source src="docs/videos/create-shelf.mp4" type="video/webm">
+        </video>
+    </div>
+
+
+- addReadingItem
+
+### Inspect handlers 
+- getAllShelfs
+- getShelfById
+- getItemById
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
