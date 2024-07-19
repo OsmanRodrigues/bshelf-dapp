@@ -10,7 +10,7 @@ export class Shelf {
      
      * ### Shelf model required data
 
-     * owner: address (eg.: "0x...")
+     * @param {*} owner address (eg.: "0x...")
      
     */
     constructor(owner) {
@@ -23,13 +23,13 @@ export class Shelf {
     /**
      * ### Shelf getData
      
-     * return shelf basic data.
+     * @description returns shelf basic data.
 
-     * id: UUID
-
-     * owner: address (eg.: "0x...")
-
-     * createdAt: number
+     * @returns shelf { 
+            id: UUID, owner: 
+            address (eg.: "0x..."), 
+            createdAt: number 
+        }
 
      */
     getData() {
@@ -43,9 +43,9 @@ export class Shelf {
     /**
      * ### Shelf getItems
      
-     * return all reading items from the shelf.
+     * @description return all reading items from the shelf.
 
-     * item: ReadingItem model
+     * @returns ReadingItemModel
 
      */
     getItems() {
@@ -55,9 +55,9 @@ export class Shelf {
     /**
      * ### Shelf addItem
      
-     * add a single item to the shelf.
+     * @description add a single item to the shelf.
 
-     * item: ReadingItem model
+     * @param {*} item ReadingItemModel
 
      */
     addItem(item) {
