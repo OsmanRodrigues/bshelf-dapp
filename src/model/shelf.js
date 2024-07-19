@@ -41,11 +41,23 @@ export class Shelf {
     }
 
     /**
+     * ### Shelf getItemById
+     
+     * @description return an shelf item given an id.
+
+     * @returns ReadingItemModel
+
+     */
+    getItemById(id) {
+        return this.items.get(id);
+    }
+
+    /**
      * ### Shelf getItems
      
      * @description return all reading items from the shelf.
 
-     * @returns ReadingItemModel
+     * @returns ReadingItemModel[ ]
 
      */
     getItems() {

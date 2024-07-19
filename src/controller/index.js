@@ -9,4 +9,5 @@ export const controller = {
     getAllShelfs: shelfController.getAllShelfs,
     getShelfById: shelfController.getShelfById,
     addReadingItem: readingItemController.addReadingItem,
+    getItemById: readingItemController.getItemById,
 };

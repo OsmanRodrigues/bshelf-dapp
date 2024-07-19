@@ -36,4 +36,31 @@ export class ReadingItemController {
             };
         });
     }
+
+    /**
+     * ### ReadingItemController getItemById
+     * @description get a shelf item by a given both shelf and item id.
+     * @param {*} data shelf id (UUID)
+     */
+    async getItemById(data) {
+        const shelfId = data[0];
+        const storageRequest = shelfStorage.getOneById(shelfId);
+
+        if (!storageRequest?.id)
+            return await RollupStateHandler.handleReport({
+                error: `Shelf not found for id '${shelfId}'.`,
+            });
+
+        const itemId = data[1];
+        const item = storageRequest.getItemById(itemId);
+
+        if (!item?.id)
+            return await RollupStateHandler.handleReport({
+                error: `Shelf item not found for id '${itemId}'.`,
+            });
+
+        return await RollupStateHandler.inspectWrapper(() => ({
+            details: item,
+        }));
+    }
 }
