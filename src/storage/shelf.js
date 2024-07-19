@@ -32,6 +32,15 @@ class ShelfStorage {
     getOneById(id) {
         return this.shelfs.get(id);
     }
+
+    /**
+     * ### ShelfStorage updateOne
+     * @description update a single shelf.
+     * @param {*} shelf ShelfModel
+     */
+    updateOne(shelf) {
+        this.shelfs.set(shelf.id, shelf);
+    }
 }
 
 export const shelfStorage = new ShelfStorage();

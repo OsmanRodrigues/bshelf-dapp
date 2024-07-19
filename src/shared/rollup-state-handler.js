@@ -86,7 +86,7 @@ export class RollupStateHandler {
 
         console.info(`Report generated with status: ${reportResponse.status}.`);
         console.info(`Report response: ${reportResponseText}`);
-        console.info(`Report cause: ${JSON.stringify(data)}`);
+        console.info(`Report data: ${JSON.stringify(data)}`);
 
         return statusFallback;
     }

@@ -1,12 +1,10 @@
 import { ROLLUP_SERVER } from './shared/config';
 import { hexToString } from 'viem';
-import { ShelfController } from './controller/shelf';
 import { RollupStateHandler } from './shared/rollup-state-handler';
+import { controller } from './controller';
 
 const rollup_server = ROLLUP_SERVER;
 console.log('HTTP rollup_server url is ' + rollup_server);
-
-const controller = new ShelfController();
 
 /**
  * ### Incoming advance data common schema:
