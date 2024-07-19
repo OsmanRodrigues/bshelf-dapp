@@ -253,3 +253,19 @@ There are these resources available on this dapp:
   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contributing
+We welcome contributions from the community! If you'd like to contribute to Bshelf, please follow these steps:
+
+- Fork the repository.
+- Create a new branch for your feature or bug fix.
+- Make your changes and commit them with descriptive commit messages.
+- Push your changes to your forked repository.
+- Submit a pull request to the main repository.
+- Please ensure that your code adheres to the project's coding standards and includes appropriate tests.
+
+## License
+Bshelf is released under the MIT License.
+
+## Acknowledgments
+Bshelf is built on top of the Cartesi platform and utilizes various open-source libraries and tools. We would like to express our gratitude to the developers and contributors of these projects.
