@@ -85,7 +85,7 @@ There are these resources available on this dapp:
   0x7b22616374696f6e223a226372656174655368656c66222c202264617461223a7b226f776e6572223a22307866333946643665353161616438384636463463653661423838323732373963666646623932323636227d7d
   ```
   interact
-    - access your terminal in another window and input these `cartesi cli` instructions below:
+    - *via `cartesi cli`*, access your terminal in another window and input these instructions below:
   
     ```sh
     cartesi send generic \
@@ -95,7 +95,7 @@ There are these resources available on this dapp:
         --mnemonic-passphrase='test test test test test test test test test test test junk' \
         --input=0x7b22616374696f6e223a226372656174655368656c66222c202264617461223a7b226f776e6572223a22307866333946643665353161616438384636463463653661423838323732373963666646623932323636227d7d
     ```
-    - access your terminal in another window and input this `cast` single line instruction below:
+    - *via `cast`*, access your terminal in another window and input this single line instruction below:
 
     ```sh
     cast send 0x59b22D57D4f067708AB0c00552767405926dc768 "addInput(address,bytes)" 0xab7528bb862fb57e8a2bcd567a2e929a0be56a5e 0x7b22616374696f6e223a226372656174655368656c66222c202264617461223a7b226f776e6572223a22307866333946643665353161616438384636463463653661423838323732373963666646623932323636227d7d --mnemonic 'test test test test test test test test test test test junk'
@@ -124,7 +124,7 @@ There are these resources available on this dapp:
   0x7b22616374696f6e223a2261646452656164696e674974656d222c202264617461223a7b227368656c66223a2264386330346137622d653230372d346466622d613164322d633634653964303963396535222c20227469746c65223a224d79206669727374206e6f7465626f6f6b222c2022636f6e74656e74223a223c68313e68693c2f68313e222c2022636f6e74656e7454797065223a2268746d6c227d7d
   ``` 
   interact
-    - access your terminal in another window and input these `cartesi cli` instructions below:
+    - *via `cartesi cli`*, access your terminal in another window and input these instructions below:
   
     ```sh
     cartesi send generic \
@@ -134,7 +134,7 @@ There are these resources available on this dapp:
         --mnemonic-passphrase='test test test test test test test test test test test junk' \
         --input=0x7b22616374696f6e223a2261646452656164696e674974656d222c202264617461223a7b227368656c66223a2264386330346137622d653230372d346466622d613164322d633634653964303963396535222c20227469746c65223a224d79206669727374206e6f7465626f6f6b222c2022636f6e74656e74223a223c68313e68693c2f68313e222c2022636f6e74656e7454797065223a2268746d6c227d7d
     ```
-    - access your terminal in another window and input this `cast` single line instruction below:
+    - *via `cast`*, access your terminal in another window and input this single line instruction below:
 
     ```sh
     cast send 0x59b22D57D4f067708AB0c00552767405926dc768 "addInput(address,bytes)" 0xab7528bb862fb57e8a2bcd567a2e929a0be56a5e 0x7b22616374696f6e223a2261646452656164696e674974656d222c202264617461223a7b227368656c66223a2264386330346137622d653230372d346466622d613164322d633634653964303963396535222c20227469746c65223a224d79206669727374206e6f7465626f6f6b222c2022636f6e74656e74223a223c68313e68693c2f68313e222c2022636f6e74656e7454797065223a2268746d6c227d7d --mnemonic 'test test test test test test test test test test test junk'
